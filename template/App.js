@@ -48,6 +48,7 @@ const setFullscreenWithoutBar = false;
  *  будет фулскрин приложение с прозрачной шторкой
  */
 const setFullscreenWithBar = false;
+const USER_AGENT = "Mozilla/5.0 (X11; Linux i686) AppleWebKit/5322 (KHTML, like Gecko) Chrome/37.0.893.0 Mobile Safari/5322";
 
 /** Ссылка на приложение юзера */
 const userURL = 'https://zeroqode.com/';
@@ -734,9 +735,10 @@ class App extends Component {
     if (!url) return;
 
     if (
-      url.indexOf(hostURL) === -1 &&
-      url.indexOf(scheme) === -1 &&
-      url.indexOf('auth') === -1
+      !url.includes(hostURL) &&
+      !url.includes(scheme) &&
+      !url.includes('auth') &&
+      !url.includes('.bubbleapps.io/api/1.1/oauth_redirect')
     ) {
       this.webview.stopLoading();
       InAppBrowser.isAvailable().then(available => {
@@ -778,6 +780,7 @@ class App extends Component {
               allowsInlineMediaPlayback={true}
               startInLoadingState={true}
               sharedCookiesEnabled={true}
+              userAgent={USER_AGENT}
               renderLoading={() => {
                 return (
                   <View
@@ -824,6 +827,7 @@ class App extends Component {
               allowsInlineMediaPlayback={true}
               startInLoadingState={true}
               sharedCookiesEnabled={true}
+              userAgent={USER_AGENT}
               renderLoading={() => {
                 return (
                   <View
