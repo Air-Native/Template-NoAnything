@@ -820,6 +820,7 @@ class App extends Component {
                       style={{
                         width: logoWidth,
                         height: logoWidth,
+                        resizeMode: "contain",
                       }}
                       source={require('./sources/boot.png')} //Bootsplash image
                     />
@@ -867,6 +868,7 @@ class App extends Component {
                       style={{
                         width: logoWidth,
                         height: logoWidth,
+                        resizeMode: "contain",
                       }}
                       source={require('./sources/boot.png')} //Bootsplash image
                     />
