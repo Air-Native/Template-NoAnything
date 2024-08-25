@@ -66,7 +66,7 @@ public class MainApplication extends Application implements ReactApplication {
         DefaultNewArchitectureEntryPoint.load();
     }
 
-    ReactNativeFlipper.initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
+    // ReactNativeFlipper.initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
   }
 
   @Override
